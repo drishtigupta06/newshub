@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NewsHub - Your World. Your News. A modern, comprehensive online news portal delivering trusted journalism across Technology, Sports, Politics, Business, and Entertainment.">
+  <meta name="keywords" content="News, Breaking News, Technology, Sports, Politics, Business, Entertainment, NewsHub">
+  <meta name="author" content="NewsHub Editorial Team">
+  <title>NewsHub | Your World. Your News.</title>
+
+  <!-- Google Fonts: Merriweather for classic editorial headlines & Inter for clean UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <div class="container announcement-content">
+      <div class="announcement-left">
+        <span class="live-indicator"><span class="live-dot"></span> LIVE EDITION</span>
+        <span class="announcement-date" id="current-date">Sunday, October 25, 2026</span>
+        <span class="announcement-divider">|</span>
+        <span class="announcement-meta">📍 Global Edition • 22°C Clear</span>
+      </div>
+      <div class="announcement-right">
+        <button id="theme-toggle-btn" class="icon-text-btn" aria-label="Toggle dark mode" title="Toggle Light/Dark Theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span class="theme-btn-label">Dark Mode</span>
+        </button>
+        <button id="saved-bookmarks-btn" class="icon-text-btn" aria-label="View Saved Articles" title="Saved Bookmarks">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <span>Saved (<span id="bookmark-counter">0</span>)</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Masthead Header -->
+  <header class="site-header">
+    <div class="container masthead">
+      <div class="masthead-left">
+        <button id="mobile-menu-toggle" class="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="newspaper-meta-badge">
+          <span>VOL. CXXIV • NO. 48</span>
+          <span class="established">EST. 2026</span>
+        </div>
+      </div>
+
+      <div class="masthead-center">
+        <a href="#" class="brand-logo" id="home-logo-link">
+          <span class="logo-text">News<span class="accent-text">Hub</span></span>
+          <span class="logo-period">.</span>
+        </a>
+        <p class="tagline">Your World. Your News.</p>
+      </div>
+
+      <div class="masthead-right">
+        <div class="header-search-wrapper" role="search">
+          <div class="search-input-group">
+            <svg class="search-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="header-search-input" placeholder="Search news, topics..." aria-label="Search news articles" autocomplete="off">
+            <button id="clear-search-btn" class="clear-search-btn hidden" title="Clear search" aria-label="Clear search">&times;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="primary-nav" id="primary-navbar" aria-label="Main Navigation">
+      <div class="container nav-container">
+        <ul class="nav-links" id="main-nav-links">
+          <li><button class="nav-btn active" data-category="all">Home</button></li>
+          <li><button class="nav-btn" data-category="Technology">Technology</button></li>
+          <li><button class="nav-btn" data-category="Sports">Sports</button></li>
+          <li><button class="nav-btn" data-category="Politics">Politics</button></li>
+          <li><button class="nav-btn" data-category="Business">Business</button></li>
+          <li><button class="nav-btn" data-category="Entertainment">Entertainment</button></li>
+        </ul>
+        <div class="quick-nav-action">
+          <a href="#newsletter-section" class="subscribe-pill-btn">Subscribe Free</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-logo">News<span class="accent-text">Hub</span></div>
+      <button id="close-drawer-btn" class="drawer-close-btn" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-drawer-search">
+      <input type="text" id="mobile-search-input" placeholder="Search news..." aria-label="Mobile search">
+    </div>
+    <ul class="mobile-nav-list" id="mobile-nav-list">
+      <li><button class="mobile-nav-btn active" data-category="all">Home</button></li>
+      <li><button class="mobile-nav-btn" data-category="Technology">Technology</button></li>
+      <li><button class="mobile-nav-btn" data-category="Sports">Sports</button></li>
+      <li><button class="mobile-nav-btn" data-category="Politics">Politics</button></li>
+      <li><button class="mobile-nav-btn" data-category="Business">Business</button></li>
+      <li><button class="mobile-nav-btn" data-category="Entertainment">Entertainment</button></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button id="mobile-saved-btn" class="drawer-action-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        <span>View Saved Articles</span>
+      </button>
+      <button id="mobile-theme-btn" class="drawer-action-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <span>Toggle Dark Theme</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Breaking News Strip -->
+  <section class="breaking-news-strip" aria-label="Breaking News">
+    <div class="container breaking-container">
+      <div class="breaking-badge">
+        <span class="flash-icon">⚡</span> BREAKING
+      </div>
+      <div class="breaking-content-wrapper">
+        <div class="breaking-ticker" id="breaking-ticker" tabindex="0" role="marquee" aria-live="polite">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+      <div class="ticker-controls">
+        <button id="prev-ticker-btn" class="ticker-nav-btn" aria-label="Previous headline" title="Previous headline">&lsaquo;</button>
+        <button id="next-ticker-btn" class="ticker-nav-btn" aria-label="Next headline" title="Next headline">&rsaquo;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main News Content -->
+  <main class="main-content" id="main-content">
+    <div class="container">
+
+      <!-- Dynamic Search & Filter Feedback Banner -->
+      <section id="filter-banner" class="filter-banner hidden" aria-live="polite">
+        <div class="filter-banner-content">
+          <span class="filter-banner-text" id="filter-banner-text">Showing articles in category: <strong>All</strong></span>
+          <button id="reset-filter-btn" class="reset-filter-btn">Clear Filter & Show All</button>
+        </div>
+      </section>
+
+      <!-- Top Section: Featured Hero & Trending Sidebar -->
+      <section class="lead-stories-grid" id="lead-stories-section">
+        <!-- Hero Featured Story -->
+        <article class="featured-card" id="featured-story-container" aria-label="Featured Story">
+          <!-- Rendered dynamically by script.js -->
+        </article>
+
+        <!-- Trending Sidebar -->
+        <aside class="trending-sidebar" aria-label="Trending News">
+          <div class="sidebar-header">
+            <h2 class="sidebar-title"><span class="trending-flame">🔥</span> Trending Stories</h2>
+            <span class="sidebar-subtitle">Most read right now</span>
+          </div>
+          <ol class="trending-list" id="trending-list-container">
+            <!-- Rendered dynamically by script.js -->
+          </ol>
+        </aside>
+      </section>
+
+      <!-- Category Filter Pills and View Controls -->
+      <section class="news-controls-section">
+        <div class="section-title-wrapper">
+          <h2 class="section-heading" id="grid-section-heading">Latest Dispatches</h2>
+          <span class="heading-line"></span>
+        </div>
+        <div class="controls-bar">
+          <div class="category-pills" id="category-pills" role="tablist">
+            <button class="pill-btn active" data-category="all" role="tab" aria-selected="true">All Stories</button>
+            <button class="pill-btn" data-category="Technology" role="tab" aria-selected="false">Technology</button>
+            <button class="pill-btn" data-category="Sports" role="tab" aria-selected="false">Sports</button>
+            <button class="pill-btn" data-category="Politics" role="tab" aria-selected="false">Politics</button>
+            <button class="pill-btn" data-category="Business" role="tab" aria-selected="false">Business</button>
+            <button class="pill-btn" data-category="Entertainment" role="tab" aria-selected="false">Entertainment</button>
+          </div>
+          <div class="sort-selector">
+            <label for="sort-select" class="sort-label">Sort by:</label>
+            <select id="sort-select" class="sort-dropdown" aria-label="Sort articles">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest News Cards Grid (Minimum 6 cards) -->
+      <section class="latest-news-grid" id="latest-news-grid" aria-live="polite">
+        <!-- News cards rendered dynamically by script.js -->
+      </section>
+
+      <!-- Empty State Container -->
+      <div id="no-results-view" class="no-results-card hidden">
+        <div class="no-results-icon">🔍</div>
+        <h3>No articles found</h3>
+        <p>We couldn't find any articles matching your search or active filter. Try different keywords or reset the view.</p>
+        <button id="no-results-reset-btn" class="primary-btn">View All News</button>
+      </div>
+
+      <!-- Category Showcase Spotlight Section (Technology & Business) -->
+      <section class="category-spotlight-section" id="spotlight-section">
+        <div class="spotlight-header">
+          <div class="spotlight-title-group">
+            <span class="spotlight-tag">CURATED DESK</span>
+            <h2 class="spotlight-heading">Deep Dives: Technology & Innovation</h2>
+          </div>
+          <button class="text-link-btn" id="view-tech-hub-btn">Browse Tech Desk &rarr;</button>
+        </div>
+        <div class="spotlight-grid" id="tech-spotlight-grid">
+          <!-- Populated by script.js -->
+        </div>
+      </section>
+
+      <!-- Newsletter Subscription Section -->
+      <section class="newsletter-section" id="newsletter-section" aria-label="Newsletter Subscription">
+        <div class="newsletter-card">
+          <div class="newsletter-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="newsletter-content">
+            <span class="newsletter-badge">THE DAILY DISPATCH</span>
+            <h2 class="newsletter-title">Stay Informed with NewsHub Morning Briefing</h2>
+            <p class="newsletter-desc">Get the most critical headlines, investigative reports, and cultural commentary delivered to your inbox every morning at 7:00 AM.</p>
+            
+            <form id="newsletter-form" class="newsletter-form" novalidate>
+              <div class="form-row">
+                <div class="input-wrapper">
+                  <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Enter your email address (e.g. name@example.com)" aria-label="Email address for newsletter" required>
+                  <span class="validation-message" id="newsletter-validation-msg"></span>
+                </div>
+                <button type="submit" id="newsletter-submit-btn" class="subscribe-btn">
+                  <span>Subscribe Now</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </form>
+
+            <div class="newsletter-status-alert hidden" id="newsletter-success-alert" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <div>
+                <strong>Subscription Confirmed!</strong> Welcome to NewsHub. You'll receive our next morning edition.
+              </div>
+            </div>
+
+            <p class="newsletter-terms">No spam ever. Unsubscribe at any time with one click. Read our <a href="#editorial-policy" id="open-policy-link">Privacy Standards</a>.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Detailed Article Modal (Full Article View) -->
+  <div class="article-modal-backdrop" id="article-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="article-modal-container">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close article">&times;</button>
+      
+      <div class="modal-scroll-body" id="modal-content-container">
+        <!-- Content inserted dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookmarks Modal / Drawer -->
+  <div class="bookmarks-modal-backdrop" id="bookmarks-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="bookmarks-modal-container">
+      <div class="bookmarks-header">
+        <div class="bookmarks-title-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <h3>Saved Articles</h3>
+        </div>
+        <button class="modal-close-btn" id="bookmarks-close-btn" aria-label="Close saved articles">&times;</button>
+      </div>
+      <div class="bookmarks-body" id="bookmarks-list-container">
+        <!-- Bookmarked items rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- About & Contact Modal -->
+  <div class="info-modal-backdrop" id="info-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="info-modal-container">
+      <button class="modal-close-btn" id="info-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="info-modal-body" id="info-modal-body">
+        <!-- Inserted dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll to top of page" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <!-- Footer Brand Column -->
+      <div class="footer-col footer-col-brand">
+        <a href="#" class="brand-logo footer-logo">
+          <span class="logo-text">News<span class="accent-text">Hub</span></span>
+          <span class="logo-period">.</span>
+        </a>
+        <p class="footer-tagline">Your World. Your News.</p>
+        <p class="footer-desc">
+          NewsHub is an independent, non-partisan news portal dedicated to providing accurate, verified, and timely reporting across technology, politics, economics, culture, and sports worldwide.
+        </p>
+        <div class="social-links-row">
+          <a href="#" class="social-icon-btn" aria-label="Twitter / X" title="Twitter / X" onclick="event.preventDefault(); window.NewsApp.showToast('Followed NewsHub on X / Twitter');">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook" title="Facebook" onclick="event.preventDefault(); window.NewsApp.showToast('NewsHub on Facebook');">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="LinkedIn" title="LinkedIn" onclick="event.preventDefault(); window.NewsApp.showToast('NewsHub on LinkedIn');">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="RSS Feed" title="RSS Feed" onclick="event.preventDefault(); window.NewsApp.showToast('Subscribed to NewsHub RSS feed');">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Quick Links Column -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">News Desks</h4>
+        <ul class="footer-links-list">
+          <li><button class="footer-nav-link" data-category="Technology">Technology & AI</button></li>
+          <li><button class="footer-nav-link" data-category="Sports">Sports & Championships</button></li>
+          <li><button class="footer-nav-link" data-category="Politics">Global Politics</button></li>
+          <li><button class="footer-nav-link" data-category="Business">Business & Markets</button></li>
+          <li><button class="footer-nav-link" data-category="Entertainment">Arts & Entertainment</button></li>
+        </ul>
+      </div>
+
+      <!-- Footer Company Column -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">About NewsHub</h4>
+        <ul class="footer-links-list">
+          <li><button class="footer-nav-link" id="footer-about-btn">About Our Newsroom</button></li>
+          <li><button class="footer-nav-link" id="footer-contact-btn">Contact Editorial Board</button></li>
+          <li><button class="footer-nav-link" id="footer-ethics-btn">Journalistic Integrity</button></li>
+          <li><button class="footer-nav-link" id="footer-careers-btn">Careers & Fellowships</button></li>
+        </ul>
+      </div>
+
+      <!-- Footer Project Note & Compliance -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Engineering Project</h4>
+        <p class="footer-note">
+          Designed and built with clean HTML5, CSS3, and Vanilla JavaScript. Runs 100% locally in any browser with zero backend dependencies.
+        </p>
+        <div class="footer-tech-badges">
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">Zero Dependencies</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Sub-Footer -->
+    <div class="sub-footer">
+      <div class="container sub-footer-content">
+        <p class="copyright-text">&copy; 2026 NewsHub Media Group. All rights reserved. Second-Year Web Engineering Project.</p>
+        <div class="sub-footer-links">
+          <a href="#" id="sub-privacy-link">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" id="sub-terms-link">Terms of Service</a>
+          <span>•</span>
+          <a href="#" id="sub-cookies-link">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
