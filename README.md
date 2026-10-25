@@ -9,14 +9,13 @@
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-2ea44f?style=for-the-badge&logo=github)](https://drishtigupta06.github.io/newshub/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](#)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](#)
 
 **A complete, responsive, and professional digital news portal engineered using pure web standards.**  
 *Second-Year Web Engineering College Project*
 
-[Explore Features](#-key-features) • [Quick Start](#-quick-start--how-to-run) • [Project Architecture](#-project-architecture) • [Engineering Highlights](#-engineering-highlights)
+🔗 **[🌐 View Live Demo Website](https://drishtigupta06.github.io/newshub/)** • [Explore Features](#-key-features) • [Quick Start](#-quick-start--how-to-run) • [Project Architecture](#-project-architecture)
 
 </div>
 
